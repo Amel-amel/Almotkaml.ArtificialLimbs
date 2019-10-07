@@ -1,0 +1,132 @@
+﻿@model Almotkaml.ArtificialLimbs.Models.StatisticsReportModel
+@using Almotkaml.ArtificialLimbs.Global.Herbler;
+@{
+    ViewBag.Title = "";
+}
+
+@using (Html.BeginForm("DStatisticsReport", "StatisticsReport", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="row">
+        <div class="col-lg-12 animatedParent animateOnce z-index-50">
+            <div class="panel panel-default animated fadeInUp">
+                <div class="panel-heading clearfix">
+                    <h3 class="panel-title">البـحـث</h3>
+                    <ul class="panel-tool-options">
+                        <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
+                        <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
+                        <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
+                    </ul>
+                </div>
+                <div class="panel-body">
+                    @Html.Note()
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.DateFrom)
+                                @Html.DatePickerFor(model => model.DateFrom)
+                                @Html.ValidationMessageFor(model => model.DateFrom)
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.DateTo)
+                                @Html.DatePickerFor(model => model.DateTo)
+                                @Html.ValidationMessageFor(model => model.DateTo)
+                            </div>
+                        </div>
+                       
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Age)
+                                    @Html.TextBoxFor(model => model.Age , new { @class = "field_text form-control", @data_toggle = "timepicker" })
+                                    @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+                                </div></div>
+                            
+                     </div>
+
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <button name="Searchbtn" value="100" class="btn btn-default">بحث</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 animatedParent animateOnce z-index-50">
+            <div class="panel panel-default animated fadeInUp">
+                <div class="panel-heading clearfix">
+                    <h3 class="panel-title">نـتـائـج الـبـحــث</h3>
+                    <ul class="panel-tool-options">
+                        <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
+                        <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
+                        <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
+                    </ul>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover dataTables-example">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2">@Html.DisplayNameFor(model => model. DeviceID)</th>
+                                    <th colspan="2">@Html.DisplayFor(model => model.Under)</th>
+                                    <th colspan="2">@Html.DisplayFor(model => model.Above)</th>
+                                    <th rowspan="2">@Html.DisplayNameFor(model => model.Total)</th>
+                                </tr>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.UnderAgeM)</th>
+                                    <th>@Html.DisplayNameFor(model => model.UnderAgeF)</th>
+                                    <th>@Html.DisplayNameFor(model => model.AboveAgeM)</th>
+                                    <th>@Html.DisplayNameFor(model => model.AboveAgeF)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    var count = 0;
+                                }
+                                @foreach (var item in Model.DStatisticsReportGrid)
+                                {
+                                    count++;
+                                    <tr class="gradeX">
+                                        <td>@Html.DisplayFor(modelItem => item.DeviceName)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.UnderAgeM)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.UnderAgeF)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.AboveAgeM)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.AboveAgeF)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.Total)</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <br />
+
+                    <div class="row">
+                        خيارات الطباعة :
+                        <button name="PdfReportBtn" type="submit" value="PDF" class="btn btn-danger" formtarget="_blank">PDF</button>
+                        <button name="ExcelReportBtn" type="submit" value="EXCEL" class="btn btn-success" formtarget="_blank">EXCEL</button>
+                        <button name="WordReportBtn" type="submit" value="WORD" class="btn btn-primary" formtarget="_blank">WORD</button>
+
+
+                    </div>
+
+
+                    @*<br />
+                        خيارات الطباعة :
+                        <a target="_blank" class="btn btn-danger" href="@Url.Action("ElectroViewReport", new { id = "PDF" })">PDF</a>
+                        <a target="_blank" class="btn btn-success" href="@Url.Action("ElectroViewReport", new { id = "Excel" })">Exel</a>
+                        <a target="_blank" class="btn btn-primary" href="@Url.Action("ElectroViewReport", new { id = "Word" })">Word</a>*@
+
+                </div>
+            </div>
+        </div>
+    </div>
+                                    }

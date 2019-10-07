@@ -1,0 +1,73 @@
+﻿@model Almotkaml.ArtificialLimbs.Models.CompanyInfoModel
+@using Almotkaml.ArtificialLimbs.Models
+@using Almotkaml.ArtificialLimbs.Global.Herbler
+
+<div class="panel-body">
+    @Html.AntiForgeryToken()
+
+    <div>
+        @Html.Note()
+    </div>
+    @Html.HiddenFor(model => model.CompanyInfosID)
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.ShortName)
+                @Html.TextBoxFor(model => model.ShortName, new { @class = "field_text form-control" })
+                @Html.ValidationMessageFor(model => model.ShortName)
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.LongName)
+                @Html.TextAreaFor(model => model.LongName, new { @class = "field_area form-control" })
+                @Html.ValidationMessageFor(model => model.LongName)
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.EnglishName)
+                @Html.TextBoxFor(model => model.EnglishName, new { @class = "field_text form-control" })
+                @*@Html.ValidationMessageFor(model => model.EnglishName)*@
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Phone)
+                @Html.TextBoxFor(model => model.Phone, new { @class = "field_text form-control" })
+                @Html.ValidationMessageFor(model => model.Phone)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Mobile)
+                @Html.TextBoxFor(model => model.Mobile, new { @class = "field_text form-control" })
+  
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email)
+                @Html.TextBoxFor(model => model.Email, new { @class = "field_text form-control" })
+       
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Website)
+                @Html.TextBoxFor(model => model.Website, new { @class = "field_text form-control" })
+          
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Address)
+                @Html.TextAreaFor(model => model.Address, new { @class = "field_text form-control" })
+
+            </div>
+        </div>
+    </div>
+
+</div>

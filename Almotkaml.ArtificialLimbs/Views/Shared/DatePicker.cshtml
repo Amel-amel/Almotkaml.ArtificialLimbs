@@ -1,0 +1,23 @@
+﻿@model Almotkaml.ArtificialLimbs.Global.Herbler.DatePick
+
+<script>
+    $(function () {
+        $("#@Model.IdName").datepicker("option", "showAnim", "fadeIn");
+        $("#@Model.IdName").datepicker({
+            //changeMonth: true,
+            //changeYear: true,
+            startDate: Date.now().a,
+            multidate: true
+        });
+        $("#@Model.IdName").datepicker("option", "dateFormat", "yy-mm-dd");
+        $("#@Model.IdName").datepicker("setDate", "@Model.Value");
+
+    });
+
+</script>
+<div class="input-group date date-popup">
+    @Html.TextBox(Model.Name, Model.Value, Model.Attribute)
+
+    @*<input type="text" data-format="D, dd MM yyyy" class="form-control">*@
+    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+</div>

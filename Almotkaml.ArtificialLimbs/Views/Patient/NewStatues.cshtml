@@ -1,0 +1,21 @@
+﻿@model Almotkaml.ArtificialLimbs.Models.PatientModel
+@using Almotkaml.ArtificialLimbs.Global.Herbler
+@using Almotkaml.ArtificialLimbs.Models
+
+@{
+    ViewBag.Title = "تسجيل حالة";
+}
+
+@using (Ajax.BeginForm(new AjaxOptions()
+{
+    UpdateTargetId = "ajax-form",
+    OnSuccess = "RedirectToIndex()",
+    OnBegin = "OnBegin()",
+    LoadingElementId = "divLoading"
+}))
+{
+
+    <div id="ajax-form">
+        @Html.Partial("_NewStatues", Model, ViewData)
+    </div>
+}

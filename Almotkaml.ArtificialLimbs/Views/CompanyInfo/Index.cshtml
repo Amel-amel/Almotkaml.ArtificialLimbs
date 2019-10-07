@@ -1,0 +1,37 @@
+﻿@model Almotkaml.ArtificialLimbs.Models.CompanyInfoModel
+@using Almotkaml.ArtificialLimbs.Models
+
+
+@{
+    ViewBag.Title = "بيانات الجهة";
+}
+
+@using (Html.BeginForm("Index", "CompanyInfo", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <fieldset class="no-border">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        @ViewBag.Title
+                    </div>
+                    <div id="ajax-form">
+                        @Html.Partial("_Form", Model)
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                @*@if (Model.CanSubmit)
+                                    {*@
+                                @if (Model.CanEdit)
+                                { <input name="save" type="submit" value="حفظ" class="btn btn-success js-submit" />}
+                                @*}*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.panel -->
+            </div>
+        </div>
+    </fieldset>
+}

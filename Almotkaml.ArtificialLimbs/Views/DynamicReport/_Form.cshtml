@@ -1,0 +1,566 @@
+﻿@model Almotkaml.ArtificialLimbs.Models.DynamicReportModel
+@using Almotkaml.ArtificialLimbs.Global.Herbler
+@using Almotkaml.ArtificialLimbs.Global.Extensions
+@using Almotkaml.ArtificialLimbs.Core.Enum
+@using Almotkaml.ArtificialLimbs.Models
+
+
+<link href="~/Content/css/Checkbox.css" rel="stylesheet" />
+
+<div class="row">
+    <div class="col-lg-12 animatedParent animateOnce z-index-50">
+        <div class="panel panel-default animated fadeInUp">
+            <div class="panel-heading clearfix">
+                <h3 class="panel-title">البـحـث</h3>
+                <ul class="panel-tool-options">
+                    <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
+                    <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
+                    <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
+                </ul>
+            </div>
+            <div class="panel-body">
+                @Html.Note()
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="form-group">
+                            @Html.Label("", htmlAttributes: new { @class = "control-label " })
+                            @Html.DropDownList("State", new SelectListItem[]
+                                    {
+                                    new SelectListItem() {Text = "الكل", Value = "All"},
+                                    new SelectListItem() {Text = "حالات الاستلام", Value = "Recipt"},
+                                    new SelectListItem() {Text = "حالات الانتظار", Value ="Waiting"}
+                                    }, new { @class = "field_text form-control" })
+                        </div>
+                    </div>
+                    </div>
+                <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                    @Html.LabelFor(model => model.ReferenceNo)
+                                    @Html.TextBoxFor(model => model.ReferenceNo, new { @class = "field_text form-control" })
+                                    @Html.ValidationMessageFor(model => model.ReferenceNo)
+                                </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                    @Html.LabelFor(model => model.PatientID)
+                                    <button type="button" class="field_text form-control" style="text-align: right" data-toggle="modal" data-target="#PatientModal">@Model.PatientName</button>
+                                    @Html.ValidationMessageFor(model => model.PatientID)
+                                </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.CheckGender, new { style = "transform: scale(2.0);-webkit-transform: scale(2.0);" }) &nbsp;
+                                @Html.LabelFor(model => model.Gender)
+                                @Html.EnumDropDownListFor(model => model.Gender, new { @class = "field_text form-control" })
+                                @Html.ValidationMessageFor(model => model.Gender)
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.CheckBirthDate, new { style = "transform: scale(2.0);-webkit-transform: scale(2.0);" }) &nbsp;
+                                @Html.LabelFor(model => model.BirthDate)
+                                @Html.DatePickerFor(model => model.BirthDate, new { @class = "field_text form-control" })
+                                @Html.ValidationMessageFor(model => model.BirthDate)
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.CheckPhoneNumber, new { style = "transform: scale(2.0);-webkit-transform: scale(2.0);" }) &nbsp;
+                                @Html.LabelFor(model => model.PhoneNumber)
+                                @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "field_text form-control" })
+                                @Html.ValidationMessageFor(model => model.PhoneNumber)
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.CheckNationalityNumber, new { style = "transform: scale(2.0);-webkit-transform: scale(2.0);" }) &nbsp;
+                                @Html.LabelFor(model => model.NationalityNumber)
+                                @Html.TextBoxFor(model => model.NationalityNumber, new { @class = "field_text form-control" })
+                                @Html.ValidationMessageFor(model => model.NationalityNumber)
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.CheckNationality, new { style = "transform: scale(2.0);-webkit-transform: scale(2.0);" }) &nbsp;
+                                @Html.LabelFor(model => model.NationalityID)
+                                @Html.DropDownListFor(model => model.NationalityID, new SelectList(Model.NationalityList, nameof(NationalityListItem.NationalityId), nameof(NationalityListItem.Name)), "--اختر--", new { @class = "Select2 field_menu form-control" })
+                                @Html.ValidationMessageFor(model => model.NationalityID)
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.CheckCity, new { style = "transform: scale(2.0);-webkit-transform: scale(2.0);" }) &nbsp;
+                                @Html.LabelFor(model => model.CityID)
+                                @Html.DropDownListFor(model => model.CityID, new SelectList(Model.CityList, nameof(CityListItem.CityId), nameof(CityListItem.Name)), "--اختر--", new { @class = "Select2 field_menu form-control" })
+                                @Html.ValidationMessageFor(model => model.CityID)
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.CheckRegistrationDate, new { style = "transform: scale(2.0);-webkit-transform: scale(2.0);" }) &nbsp;
+                                @Html.LabelFor(model => model.RegistrationDate)
+                                @Html.DatePickerFor(model => model.RegistrationDate, new { @class = "field_text form-control" })
+                                @Html.ValidationMessageFor(model => model.RegistrationDate)
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.RegistrationDateFrom)
+                                @Html.DatePickerFor(model => model.RegistrationDateFrom, new { @class = "field_text form-control" })
+                                @Html.ValidationMessageFor(model => model.RegistrationDateFrom)
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.RegistrationDateTo)
+                                @Html.DatePickerFor(model => model.RegistrationDateTo, new { @class = "field_text form-control" })
+                                @Html.ValidationMessageFor(model => model.RegistrationDateTo)
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.CheckTechnical, new { style = "transform: scale(2.0);-webkit-transform: scale(2.0);" }) &nbsp;
+                                @Html.LabelFor(model => model.TechnicalID)
+                                <button type="button" class="field_text form-control" style="text-align: right" data-toggle="modal" data-target="#TechnicalModal">@Model.Technical</button>
+                                @Html.ValidationMessageFor(model => model.TechnicalID)
+                            </div>
+                        </div>
+                        @*<div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.CheckTechnicalAssistant, new { style = "transform: scale(2.0);-webkit-transform: scale(2.0);" }) &nbsp;
+                                @Html.LabelFor(model => model.TechnicalAssistantID)
+                                <button type="button" class="field_text form-control" style="text-align: right" data-toggle="modal" data-target="#AssistantModal">@Model.TechnicalAssistant</button>
+                                @Html.ValidationMessageFor(model => model.TechnicalAssistantID)
+                            </div>
+                        </div>*@
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.CheckDeviceID, new { style = "transform: scale(2.0);-webkit-transform: scale(2.0);" }) &nbsp;
+                                @Html.LabelFor(model => model.DeviceID)
+                                @Html.DropDownListFor(model => model.DeviceID, new SelectList(Model.DeviceList, nameof(DeviceListItem.DeviceID), nameof(DeviceListItem.Name)), "--اختر--", new { @class = "Select2 field_menu form-control" })
+                                @Html.ValidationMessageFor(model => model.DeviceID)
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.CheckMeasurementDate, new { style = "transform: scale(2.0);-webkit-transform: scale(2.0);" }) &nbsp;
+                                @Html.LabelFor(model => model.MeasurementDate)
+                                @Html.DatePickerFor(model => model.MeasurementDate, new { @class = "field_text form-control" })
+                                @Html.ValidationMessageFor(model => model.MeasurementDate)
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.CheckFirstTestDate, new { style = "transform: scale(2.0);-webkit-transform: scale(2.0);" }) &nbsp;
+                                @Html.LabelFor(model => model.FirstTestDate)
+                                @Html.DatePickerFor(model => model.FirstTestDate, new { @class = "field_text form-control" })
+                                @Html.ValidationMessageFor(model => model.FirstTestDate)
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.CheckSecondTestDate, new { style = "transform: scale(2.0);-webkit-transform: scale(2.0);" }) &nbsp;
+                                @Html.LabelFor(model => model.SecondTestDate)
+                                @Html.DatePickerFor(model => model.SecondTestDate, new { @class = "field_text form-control" })
+                                @Html.ValidationMessageFor(model => model.SecondTestDate)
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.CheckReceiptDate, new { style = "transform: scale(2.0);-webkit-transform: scale(2.0);" }) &nbsp;
+                                @Html.LabelFor(model => model.ReceiptDate)
+                                @Html.DatePickerFor(model => model.ReceiptDate, new { @class = "field_text form-control" })
+                                @Html.ValidationMessageFor(model => model.ReceiptDate)
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.CheckamputationType, new { style = "transform: scale(2.0);-webkit-transform: scale(2.0);" }) &nbsp;
+                                @Html.LabelFor(model => model.amputationType)
+                                @Html.DropDownListFor(model => model.amputationType, new SelectList(Model.AmputationTypesList, nameof(AmputationTypesListItem.AmputationTypesID), nameof(AmputationTypesListItem.Name)), "--اختر--", new { @class = "Select2 field_menu form-control" })
+                                @Html.ValidationMessageFor(model => model.amputationType)
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.CheckAmputationPart, new { style = "transform: scale(2.0);-webkit-transform: scale(2.0);" }) &nbsp;
+                                @Html.LabelFor(model => model.AmputationPart)
+                                @Html.EnumDropDownListFor(model => model.AmputationPart, new { @class = "Select2 field_menu form-control" })
+                                @Html.ValidationMessageFor(model => model.AmputationPart)
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.CheckAmputationReason, new { style = "transform: scale(2.0);-webkit-transform: scale(2.0);" }) &nbsp;
+                                @Html.LabelFor(model => model.AmputationReason)
+                                @Html.DropDownListFor(model => model.AmputationReason, new SelectList(Model.AmputationReasonList, nameof(AmputationReasonList.AmputationReasonID), nameof(AmputationReasonList.Reason)), "--اختر--", new { @class = "Select2 field_menu form-control" })
+                                @Html.ValidationMessageFor(model => model.AmputationReason)
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.CheckAmputationDate, new { style = "transform: scale(2.0);-webkit-transform: scale(2.0);" }) &nbsp;
+                                @Html.LabelFor(model => model.AmputationDate)
+                                @Html.DatePickerFor(model => model.AmputationDate, new { @class = "field_text form-control" })
+                                @Html.ValidationMessageFor(model => model.AmputationDate)
+                            </div>
+                        </div>
+
+                        @*تفاصيل القياس*@
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.CheckShoeNO, new { style = "transform: scale(2.0);-webkit-transform: scale(2.0);" }) &nbsp;
+                                @Html.LabelFor(model => model.ShoeNO)
+                                @Html.TextBoxFor(model => model.ShoeNO, new { @class = "field_text form-control" })
+                                @Html.ValidationMessageFor(model => model.ShoeNO)
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.CheckMeasurementModel, new { style = "transform: scale(2.0);-webkit-transform: scale(2.0);" }) &nbsp;
+                                @Html.LabelFor(model => model.MeasurementModel)
+                                @Html.EnumDropDownListFor(model => model.MeasurementModel, "--اختر--", new { @class = "field_menu form-control"})
+                                @Html.ValidationMessageFor(model => model.MeasurementModel)
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.CheckPart, new { style = "transform: scale(2.0);-webkit-transform: scale(2.0);" }) &nbsp;
+                                @Html.LabelFor(model => model.Part)
+                                @Html.EnumDropDownListFor(model => model.Part, "--اختر--", new { @class = "field_text form-control" })
+                                @Html.ValidationMessageFor(model => model.Part)
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.CheckPartMeasure, new { style = "transform: scale(2.0);-webkit-transform: scale(2.0);" }) &nbsp;
+                                @Html.LabelFor(model => model.PartMeasure)
+                                @Html.TextBoxFor(model => model.PartMeasure, new { @class = "field_text form-control" })
+                                @Html.ValidationMessageFor(model => model.PartMeasure)
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.CheckBoxFor(model => model.CheckNote, new { style = "transform: scale(2.0);-webkit-transform: scale(2.0);" }) &nbsp;
+                                @Html.LabelFor(model => model.Note)
+                                @Html.TextBoxFor(model => model.Note, new { @class = "field_text form-control" })
+                                @Html.ValidationMessageFor(model => model.Note)
+                            </div>
+                        </div>
+                    </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <br />
+                        <div class="form-group">
+                            <button name="Searchbtn" value="100" class="btn btn-black btn-outline col-md-4"><i class="icon-search"></i>بحث</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12 animatedParent animateOnce z-index-50">
+        <div class="panel panel-default animated fadeInUp">
+            <div class="panel-heading clearfix">
+                <h3 class="panel-title">نـتـائـج الـبـحــث</h3>
+                <ul class="panel-tool-options">
+                    <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
+                    <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
+                    <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
+                </ul>
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.ReferenceNo)</th>
+                                <th>@Html.DisplayNameFor(model => model.PatientName)</th>
+                                <th>@Html.DisplayNameFor(model => model.Gender)</th>
+                                <th>@Html.DisplayNameFor(model => model.NationalityNumber)</th>
+                                <th>@Html.DisplayNameFor(model => model.PhoneNumber)</th>
+                                <th>@Html.DisplayNameFor(model => model.RegistrationDate)</th>
+                                <th>@Html.DisplayNameFor(model => model.device)</th>
+                                <th>@Html.DisplayNameFor(model => model.Note)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                var count = 0;
+                            }
+                            @foreach (var item in Model.DynamicReportGrid)
+                            {
+                                count++;
+                            <tr class="gradeX">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ReferenceNo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.patientName)
+                                </td>
+                                <td>
+                                   @typeof(Gender).DisplayFieldName(item.Gender.ToString())
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NationalityNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RegistrationDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.device)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Note)
+                                </td> 
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <br />
+
+                <div class="row">
+                    خيارات الطباعة :
+                    <button name="PdfReportBtn" type="submit" value="PDF" class="btn btn-danger" formtarget="_blank">PDF</button>
+                    <button name="ExcelReportBtn" type="submit" value="EXCEL" class="btn btn-success" formtarget="_blank">EXCEL</button>
+                    <button name="WordReportBtn" type="submit" value="WORD" class="btn btn-primary" formtarget="_blank">WORD</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  <!-- /.Patient panel -->
+<!-- Region PatientGrid -->
+<div class="modal fade" id="PatientModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+
+            <div class="modal-body panel-body">
+                <div class="form-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading clearfix">
+                            <h3 class="panel-title">  بيانات المرضى</h3>
+                            <ul class="panel-tool-options">
+                                <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover dataTables-example" style="overflow-x: hidden; max-height: 600px" data-order='[]' id="dataTables-example2">
+                                    <thead>
+                                        <tr>
+                                            <th width="20%"></th>
+                                            <th width="20%">الاسم</th>
+                                            <th width="20%">تاريخ التسجيل</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="odd gradeX">
+                                            <td>
+                                                @Html.RadioButtonFor(model => model.PatientID, 0,
+                                                       new { onclick = "hideModal('myModal');$('.modal-backdrop').remove();$(this.form).submit();", data_dismiss = "modal" })
+                                            </td>
+                                            <td>
+                                                الكل
+                                            </td>
+                                            <td>
+                                               
+                                            </td>
+                                        </tr>
+                                        @foreach (var item in Model.PatientGrid)
+                                        {
+                                            <tr class="odd gradeX">
+                                                <td>
+                                                    @Html.RadioButtonFor(model => model.PatientID, item.PatientID,
+                                                       new { onclick = "hideModal('myModal');$('.modal-backdrop').remove();$(this.form).submit();", data_dismiss = "modal" })
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.PatientName)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.RegistrationDate)
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                @Html.ActionLink("اضافة جديد", actionName: "Create", controllerName: "Patient", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })
+                <button type="button" class="btn btn-default" data-dismiss="modal">إغلاق</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Region PatientGrid -->
+
+<!-- /.Technical panel
+<!-- Region TechnicalGrid -->
+<div class="modal fade" id="TechnicalModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+
+            <div class="modal-body panel-body">
+                <div class="form-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading clearfix">
+                            <h3 class="panel-title">  بيانات الفنيين</h3>
+                            <ul class="panel-tool-options">
+                                <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover dataTables-example" style="overflow-x: hidden; max-height: 600px" data-order='[]' id="dataTables-example2">
+                                    <thead>
+                                        <tr>
+                                            <th width="20%"></th>
+                                            <th width="20%">الاسم</th>
+                                            <th width="20%">القسم</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="odd gradeX">
+                                            <td>
+                                                @Html.RadioButtonFor(model => model.TechnicalID, 0,
+                                                       new { onclick = "hideModal('myModal');$('.modal-backdrop').remove();$(this.form).submit();", data_dismiss = "modal" })
+                                            </td>
+                                            <td>
+                                                الكل
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        @foreach (var item in Model.EmployeeGrid)
+                                        {
+                                            <tr class="odd gradeX">
+                                                <td>
+                                                    @Html.RadioButtonFor(model => model.TechnicalID, item.EmployeeID,
+                                                       new { onclick = "hideModal('myModal');$('.modal-backdrop').remove();$(this.form).submit();", data_dismiss = "modal" })
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.EmployeeName)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.DepartmentName)
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                @Html.ActionLink("اضافة جديد", actionName: "Create", controllerName: "Employee", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })
+                <button type="button" class="btn btn-default" data-dismiss="modal">إغلاق</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Region TechnicalGrid -->
+
+<!-- /.Assistant panel -->
+<!-- Region AssistantGrid -->
+<div class="modal fade" id="AssistantModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+
+            <div class="modal-body panel-body">
+                <div class="form-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading clearfix">
+                            <h3 class="panel-title">  بيانات الفنيين</h3>
+                            <ul class="panel-tool-options">
+                                <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover dataTables-example" style="overflow-x: hidden; max-height: 600px" data-order='[]' id="dataTables-example2">
+                                    <thead>
+                                        <tr>
+                                            <th width="20%"></th>
+                                            <th width="20%">الاسم</th>
+                                            <th width="20%">القسم</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="odd gradeX">
+                                            <td>
+                                                @Html.RadioButtonFor(model => model.TechnicalAssistantID, 0,
+                                                       new { onclick = "hideModal('myModal');$('.modal-backdrop').remove();$(this.form).submit();", data_dismiss = "modal" })
+                                            </td>
+                                            <td>
+                                                الكل
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        @foreach (var item in Model.EmployeeGrid)
+                                        {
+                                            <tr class="odd gradeX">
+                                                <td>
+                                                    @Html.RadioButtonFor(model => model.TechnicalAssistantID, item.EmployeeID,
+                                                       new { onclick = "hideModal('myModal');$('.modal-backdrop').remove();$(this.form).submit();", data_dismiss = "modal" })
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.EmployeeName)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.DepartmentName)
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                @Html.ActionLink("اضافة جديد", actionName: "Create", controllerName: "Employee", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })
+                <button type="button" class="btn btn-default" data-dismiss="modal">إغلاق</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Region AssistantGrid -->

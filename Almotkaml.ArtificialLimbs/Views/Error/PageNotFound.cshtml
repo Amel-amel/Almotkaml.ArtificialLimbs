@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Page not found";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-error-container animatedParent animateOnce z-index-50">
+    <div class="page-error-content animated growIn slower">
+        <div class="error-code"></div>
+        <h4 class="text-center title">عفوا, ليس لديك صلاحية الدخول لهذه الصفحة!</h4>
+        <form>
+            <div class="form-group">
+                <div class="input-group">
+                    
+                    @*<div class="input-group-btn">
+                        @Html.ActionLink("اضافة", "Index", "Home", new { @class = "btn btn-primary btn-lg" })
+                        <button class="btn btn-primary btn-lg"><i class="fa fa-search"></i></button>
+                    </div>*@
+                </div>
+            </div>
+        </form>
+        @*<p class="text-center"><a href="index.html" class="btn btn-primary"> Go to dashboard</a></p>*@
+    </div>
+</div>

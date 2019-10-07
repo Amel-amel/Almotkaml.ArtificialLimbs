@@ -1,0 +1,22 @@
+﻿@model Almotkaml.ArtificialLimbs.Models.DailyDetailsModel
+@using Almotkaml.ArtificialLimbs.Global.Herbler
+@using Almotkaml.ArtificialLimbs.Core.Enum
+@using Almotkaml.ArtificialLimbs.Models
+
+@{
+    ViewBag.Title = "تعديل تفاصيل حالات يومية";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div id="ajax-form">
+        @Html.Partial("_Form", Model, ViewData)
+    </div>
+    <div>
+        @Html.ActionLink("الرجوع", "Index", new { id = Model.DailyStatuesID, PatientIID = Model.PatientID }, new { @class = "btn btn-info" })
+    </div>
+}
+

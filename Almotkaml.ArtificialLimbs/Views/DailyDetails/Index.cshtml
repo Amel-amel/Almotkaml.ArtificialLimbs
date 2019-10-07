@@ -1,0 +1,80 @@
+﻿@model Almotkaml.ArtificialLimbs.Models.DailyDetailsModel
+@using Almotkaml.ArtificialLimbs.Global.Herbler
+@using Almotkaml.ArtificialLimbs.Models
+
+@{
+    ViewBag.Title = "الحالات اليومية";
+}
+
+
+@using (Ajax.BeginForm(new AjaxOptions()
+{
+    UpdateTargetId = "ajax-form",
+    OnSuccess = "RedirectToIndex()",
+    OnBegin = "OnBegin()",
+    LoadingElementId = "divLoading"
+}))
+{
+
+    <div id="ajax-form">
+        @Html.Partial("_Form", Model, ViewData)
+    </div>
+}
+
+
+
+
+
+
+
+
+
+
+@section Scripts {
+
+    <script>
+    $(document).ready(function () {
+        $('.datepicker').datepicker({
+            keyboardNavigation: false,
+            forceParse: false,
+            todayHighlight: true,
+            format: "yyyy-mm-dd",
+            endDate: '+0d',
+            startDate : '-100y'
+        });
+
+        $('.date-popup').datepicker({
+            keyboardNavigation: false,
+            forceParse: false,
+            todayHighlight: true,
+            format: "yyyy-mm-dd"
+        });
+
+        $('#date-popup input').datepicker({
+            //multidate: true
+            startDate: '-3d',
+            format: "dd/mm/yyyy"
+        });
+        $('#year-view').datepicker({
+            startView: 2,
+            keyboardNavigation: false,
+            forceParse: false,
+            format: "MM/dd/yyyy"
+        });
+
+        $(".select2").select2();
+        $(".select2-placeholer").select2({
+            allowClear: true
+        });
+
+    });
+    </script>
+}
+
+
+
+
+
+
+
+

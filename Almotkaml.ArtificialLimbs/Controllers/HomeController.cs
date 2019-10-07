@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Almotkaml.ArtificialLimbs.Core;
+using Almotkaml.ArtificialLimbs.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,25 +8,38 @@ using System.Web.Mvc;
 
 namespace Almotkaml.ArtificialLimbs.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
+        private readonly ArtificialLimbsDbContext _context;
+        private readonly UnitOfWork _unitOfWork;
+
+        public HomeController()
+        {
+            _context = new ArtificialLimbsDbContext();
+            _unitOfWork = new UnitOfWork(_context);
+        }
+
         public ActionResult Index()
+
         {
-            return View();
+            var model = Prepare();
+            return View(model);
         }
 
-        public ActionResult About()
+      
+        public HomeModel Prepare()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            GetPermission();
+            int year = DateTime.Now.Year;
+            return new HomeModel()
+            {
+                PatientCount = _unitOfWork.Patient.GetPatientCount(),
+                NewPatientCount = _unitOfWork.Patient.GetNewPatientCount(),
+                MenCount = _unitOfWork.Patient.GetMenCount(),
+                WomenCount = _unitOfWork.Patient.GetWomenCount(),
+                ChildrenCount = _unitOfWork.Patient.GetChildrenCount(),
+                AmpPatientCount = _unitOfWork.AmputationStatues.GetAll().Where(a=>a.patient.RegistrationDate.Year == year ).Count(),
+            };
         }
     }
 }

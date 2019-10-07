@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7206d6fbffb54c9f98a05f79eb99858e" Name="Diagram1">
+        <EntityTypeShape EntityType="AlmotkamlHrModel.C__EFMigrationsHistory" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Absence" Width="1.5" PointX="5.25" PointY="42" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Activity" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.AdjectiveEmployee" Width="1.5" PointX="0.75" PointY="48.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.AdjectiveEmployeeType" Width="1.5" PointX="1.5" PointY="44.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.AdvancePayment" Width="1.5" PointX="5.25" PointY="62.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.BankBranch" Width="1.5" PointX="12" PointY="79.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Bank" Width="1.5" PointX="9.75" PointY="80" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Booklet" Width="1.5" PointX="5.25" PointY="50.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Branch" Width="1.5" PointX="1.5" PointY="97.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Center" Width="1.5" PointX="1.5" PointY="74.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.City" Width="1.5" PointX="3.75" PointY="105.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.ClassificationOnSearching" Width="1.5" PointX="0.75" PointY="52" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.ClassificationOnWork" Width="1.5" PointX="0.75" PointY="55.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Coach" Width="1.5" PointX="5.25" PointY="54.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.ContactInfo" Width="1.5" PointX="5.25" PointY="58.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Corporation" Width="1.5" PointX="3.75" PointY="109.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Country" Width="1.5" PointX="1.5" PointY="105.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Cours" Width="1.5" PointX="3.75" PointY="113.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.CurrentSituation" Width="1.5" PointX="9" PointY="76.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Delegation" Width="1.5" PointX="8.25" PointY="83.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Department" Width="1.5" PointX="1.5" PointY="70.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.DevelopmentState" Width="1.5" PointX="3.75" PointY="117.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.DevelopmentTypeA" Width="1.5" PointX="1.5" PointY="113.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.DevelopmentTypeB" Width="1.5" PointX="1.5" PointY="117" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.DevelopmentTypeC" Width="1.5" PointX="1.5" PointY="121" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.DevelopmentTypeD" Width="1.5" PointX="3.75" PointY="121" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Division" Width="1.5" PointX="0.75" PointY="64.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.DocumentImage" Width="1.5" PointX="10.5" PointY="48.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Document" Width="1.5" PointX="8.25" PointY="60" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.DocumentType" Width="1.5" PointX="6" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.EmployeePremium" Width="1.5" PointX="8.25" PointY="55.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Employee" Width="1.5" PointX="3" PointY="54.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.EmploymentValue" Width="1.5" PointX="13.5" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.EndServices" Width="1.5" PointX="5.25" PointY="70.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Evaluation" Width="1.5" PointX="5.25" PointY="74.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.ExactSpecialty" Width="1.5" PointX="0.75" PointY="78.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Extrawork" Width="1.5" PointX="5.25" PointY="78.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.HistorySubsended" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Holiday" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.IdentificationCard" Width="1.5" PointX="5.25" PointY="82.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Info" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.JobInfo" Width="1.5" PointX="11.25" PointY="56.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Job" Width="1.5" PointX="0.75" PointY="60.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.MilitaryData" Width="1.5" PointX="5.25" PointY="85.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Nationality" Width="1.5" PointX="0.75" PointY="90.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Notification" Width="1.5" PointX="7.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Passport" Width="1.5" PointX="5.25" PointY="101.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Place" Width="1.5" PointX="0.75" PointY="93.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Premium" Width="1.5" PointX="6" PointY="37.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Qualification" Width="1.5" PointX="8.25" PointY="65.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.QualificationType" Width="1.5" PointX="6" PointY="66.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.RequestedQualification" Width="1.5" PointX="3.75" PointY="124.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Reward" Width="1.5" PointX="11.25" PointY="52.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.RewardType" Width="1.5" PointX="9" PointY="45" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Salary" Width="1.5" PointX="14.25" PointY="58.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.SalaryCertified" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.SalaryInfo" Width="1.5" PointX="11.25" PointY="69.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.SalaryPremium" Width="1.5" PointX="19.5" PointY="60.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.SalaryUnit" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Sanction" Width="1.5" PointX="8.25" PointY="51.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.SanctionType" Width="1.5" PointX="6" PointY="47" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.SelfCours" Width="1.5" PointX="14.25" PointY="53.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Setting" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.SituationResolveJob" Width="1.5" PointX="14.25" PointY="67.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Specialty" Width="1.5" PointX="1.5" PointY="86.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Staffing" Width="1.5" PointX="9" PointY="90.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.StaffingType" Width="1.5" PointX="6.75" PointY="90.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.SubSpecialty" Width="1.5" PointX="1.5" PointY="82.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.sysdiagram" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.TemporaryPremium" Width="1.5" PointX="16.5" PointY="65.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.TrainingDetail" Width="1.5" PointX="8.25" PointY="71.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Training" Width="1.5" PointX="6" PointY="113" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Transfer" Width="1.5" PointX="5.25" PointY="145.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Unit" Width="1.5" PointX="0.75" PointY="101" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.UserGroup" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.Vacation" Width="1.5" PointX="17.25" PointY="60.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlmotkamlHrModel.VacationType" Width="1.5" PointX="15" PointY="73.625" IsExpanded="true" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Absences_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Activities_Users_FiredBy_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Notifications_Activities_ActivityId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_AdjectiveEmployees_AdjectiveEmployeeTypes_AdjectiveEmployeeTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Employees_AdjectiveEmployees_AdjectiveEmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_JobInfos_AdjectiveEmployees_AdjectiveEmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_AdvancePayments_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_AdvancePayments_Premiums_PremiumId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_BankBranches_Banks_BankId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Salaries_BankBranches_BankBranchId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_SalaryInfos_BankBranches_BankBranchId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Booklets_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Places_Branchs_BranchId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Departments_Centers_CenterId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Cities_Countries_CountryId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Corporations_Cities_CityId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Courses_Cities_CityId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Trainings_Cities_CityId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Employees_ClassificationOnSearchings_ClassificationOnSearchingId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_JobInfos_ClassificationOnSearchings_ClassificationOnSearchingId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Employees_ClassificationOnWorks_ClassificationOnWorkId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_JobInfos_ClassificationOnWorks_ClassificationOnWorkId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Coaches_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_ContactInfos_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Trainings_Corporations_CorporationId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Trainings_Courses_CourseId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_JobInfos_CurrentSituations_CurrentSituationId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Delegations_QualificationTypes_QualificationTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Divisions_Departments_DepartmentId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Trainings_DevelopmentStates_DevelopmentStateId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_DevelopmentTypeBs_DevelopmentTypeAs_DevelopmentTypeAId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_DevelopmentTypeCs_DevelopmentTypeBs_DevelopmentTypeBId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_DevelopmentTypeDs_DevelopmentTypeCs_DevelopmentTypeCId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Trainings_DevelopmentTypeDs_DevelopmentTypeDId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Employees_Divisions_DivisionId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Units_Divisions_DivisionId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_DocumentImages_Documents_DocumentId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Documents_DocumentTypes_DocumentTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Documents_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_EmployeePremiums_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_EmployeePremiums_Premiums_PremiumId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Employees_ExactSpecialties_ExactSpecialtyId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Employees_Jobs_JobId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Employees_Nationalities_NationalityId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Employees_Nationalities_WifeNationalityId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Employees_Places_PlaceId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Employees_Units_UnitId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_EndServiceses_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Evaluations_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Extraworks_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_IdentificationCards_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_JobInfos_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_MilitaryDatas_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Passports_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Qualifications_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Rewards_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Salaries_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_SalaryInfos_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Sanctions_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_SelfCourses_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_SituationResolveJobs_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_TrainingDetails_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Transfers_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Vacations_Employees_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_EmploymentValues_JobInfos_JobInfoId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_ExactSpecialties_SubSpecialties_SubSpecialtyId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Qualifications_ExactSpecialties_ExactSpecialtyId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_JobInfos_Jobs_JobId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_JobInfos_Staffings_StaffingId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_JobInfos_Units_UnitId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_SituationResolveJobs_Jobs_JobLastId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_SituationResolveJobs_Jobs_JobNowId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Notifications_Users_Receiver_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_SalaryPremiums_Premiums_PremiumId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Qualifications_QualificationTypes_QualificationTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Qualifications_Specialties_SpecialtyId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Qualifications_SubSpecialties_SubSpecialtyId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Trainings_RequestedQualifications_RequestedQualificationId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Rewards_RewardTypes_RewardTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_SalaryPremiums_Salaries_SalaryId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_TemporaryPremiums_Salaries_SalaryId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Sanctions_SanctionTypes_SanctionTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_SelfCourses_SubSpecialties_SubSpecialtyId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_SubSpecialties_Specialties_SpecialtyId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Staffings_StaffingTypes_StaffingTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_TrainingDetails_Trainings_TrainingId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Users_UserGroups_UserGroupId" ManuallyRouted="false" />
+        <AssociationConnector Association="AlmotkamlHrModel.FK_Vacations_VacationTypes_VacationTypeId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

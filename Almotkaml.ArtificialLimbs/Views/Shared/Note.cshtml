@@ -1,0 +1,14 @@
+﻿@using Almotkaml
+@{
+    var message = string.IsNullOrWhiteSpace(ViewBag.Message) ? TempData["Note"]?.ToString() : ViewBag.Message;
+    var isSucceed = ViewBag.valid == RequestState.Valid;
+}
+
+@if (!string.IsNullOrWhiteSpace(message) && isSucceed)
+{
+    <div id="ajax-note" class="alert alert-success">@Html.Raw(message.Replace(".", ".<br/>"))</div>
+}
+@if (!string.IsNullOrWhiteSpace(message) && !isSucceed)
+{
+    <div id="ajax-note" class="alert alert-info">@Html.Raw(message.Replace(".", ".<br/>"))</div>
+}

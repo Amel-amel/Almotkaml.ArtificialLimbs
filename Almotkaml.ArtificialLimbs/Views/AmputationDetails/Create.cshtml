@@ -1,0 +1,22 @@
+﻿@model Almotkaml.ArtificialLimbs.Models.AmputationDetailsModel
+@using Almotkaml.ArtificialLimbs.Global.Herbler
+@using Almotkaml.ArtificialLimbs.Core.Enum
+@using Almotkaml.ArtificialLimbs.Models
+
+@{
+    ViewBag.Title = "اضاقة تفاصيل حالة بتر";
+}
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    <div id="ajax-form">
+        @Html.Partial("_Form", Model, ViewData)
+    </div>
+
+     
+}
+
+<div>
+    @Html.ActionLink("الرجوع", "Index", new { id = Model.AmputationStatuesID, PatientIID = Model.PatientID }, new { @class = "btn btn-info" })
+</div>

@@ -1,0 +1,66 @@
+﻿@model Almotkaml.ArtificialLimbs.Core.Domain.DailyDetails
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DailyDetails</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dailyStatues.MeasurementDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dailyStatues.MeasurementDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MeasurementModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MeasurementModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Part)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Part)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AmputationPart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmputationPart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartMeasure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartMeasure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.shoesNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.shoesNo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DailyDetailsID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

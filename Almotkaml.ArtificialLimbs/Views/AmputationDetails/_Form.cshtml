@@ -1,0 +1,131 @@
+﻿@model Almotkaml.ArtificialLimbs.Models.AmputationDetailsModel
+
+
+@using Almotkaml.ArtificialLimbs.Global.Herbler
+@using Almotkaml.ArtificialLimbs.Core.Enum
+@using Almotkaml.ArtificialLimbs.Models
+
+<fieldset>
+    <div class="col-lg-6 animatedParent animateOnce z-index-50">
+        <div class="panel panel-default animated fadeInUp">
+            <div class="panel-heading clearfix">
+                <h3 class="panel-title ">تفاصيل حالة بتر</h3>
+                <ul class="panel-tool-options">
+                    <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
+                    <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
+                    <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="panel-body">
+                @Html.Note()
+                @*<div class="alert alert-warning" role="alert"><strong>تنبيه!</strong> </div>*@
+                <form>
+                    @Html.HiddenFor(model => model.AmputationStatuesID)
+                    @Html.HiddenFor(model => model.AmputationDetailsID)
+                    @Html.HiddenFor(model => model.PatientID)
+
+                    <div class="row">
+                        <div class="col-lg-6 col-md-4 col-sm-6">
+                            @*المريض*@
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.PatientName, htmlAttributes: new { @class = "control-label " })
+                                @Html.TextBoxFor(model => model.PatientName, new { @class = "field_text form-control" })
+                                @Html.ValidationMessageFor(model => model.PatientName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-4 col-sm-6">
+                            @*حهة البتر*@
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.AmputationPart, htmlAttributes: new { @class = "control-label " })
+                                @Html.EnumDropDownListFor(model => model.AmputationPart, "--اختر--", new { @class = "field_menu form-control" })
+                                @Html.ValidationMessageFor(model => model.AmputationPart, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-4 col-sm-6">
+                            @*نموذج القياس*@
+                           
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.MeasurementModel)
+                                @Html.EnumDropDownListFor(model => model.MeasurementModel, "--اختر--", new { @class = "field_menu form-control", onchange = "$(this.form).submit()" })
+                                @Html.ValidationMessageFor(model => model.MeasurementModel)
+                            </div>
+                            
+                        </div>
+                        <div class="col-lg-6 col-md-4 col-sm-6">
+                            @*رقم الحذاء*@
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ShoeNO, htmlAttributes: new { @class = "control-label " })
+                                @Html.TextBoxFor(model => model.ShoeNO, new { @class = "field_text form-control" })
+                                @Html.ValidationMessageFor(model => model.ShoeNO, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-lg-6col-md-4 col-sm-6">
+                            @*رقم المنظقة*@
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Part, htmlAttributes: new { @class = "control-label " })
+                                @Html.EnumDropDownListFor(model => model.Part, "--اختر--", new { @class = "field_menu form-control" })
+                                @Html.ValidationMessageFor(model => model.Part, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        @*القياس*@
+                        <div class="col-lg-6 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.PartMeasure, htmlAttributes: new { @class = "control-label " })
+                                @Html.TextBoxFor(model => model.PartMeasure, new { @class = "field_text form-control" })
+                                @Html.ValidationMessageFor(model => model.PartMeasure, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label " })
+                                @Html.TextBoxFor(model => model.Note, new { @class = "field_text form-control" })
+                                @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <button name="save" class="btn btn-info">حفظ</button>
+                        @*<input name="save" type="submit" value="اضافة" class="btn btn-success" />*@
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 animatedParent animateOnce z-index-50">
+        <div class="panel panel-default animated fadeInUp">
+           
+           
+                <div class="image" id="image2">
+                    <div style="width: 100%; height: 100%" data-lightbox="image-1" data-title="Emad">
+                        <img height="100" src="@Url.Action("GetImage")" alt="" />
+
+                        @{
+
+
+                            var path = string.IsNullOrWhiteSpace(Model.path) ? "~/Image/1.jpg" : "~/Image/" + Model.path + ".jpg";
+                            var a = path;
+                            //var enumValu = model.MeasurementModel;
+                            var imagesrc = "~/Image/" + 1 + ".jpg";
+
+
+                            <img alt="logo"  src="@Url.Content(@path)" class="img-thumbnail fit-content" style="height:408px; width:600px;" />
+                        }
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+</fieldset>

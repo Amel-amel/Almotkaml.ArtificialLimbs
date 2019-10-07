@@ -1,0 +1,53 @@
+﻿@model Almotkaml.ArtificialLimbs.Models.DynamicReportModel
+@using Almotkaml.ArtificialLimbs.Global.Herbler;
+
+@{
+    ViewBag.Title = "التقرير الحر";
+}
+
+
+@using (Ajax.BeginForm(new AjaxOptions()
+{
+    UpdateTargetId = "ajax-form",
+    OnSuccess = "RedirectToIndex()",
+    OnBegin = "OnBegin()",
+    LoadingElementId = "divLoading"
+}))
+{
+    <div id="ajax-form">
+        @Html.Partial("_Form", Model, ViewData)
+    </div>
+}
+@section Scripts {
+
+    @if (ViewBag.Message != ".")
+    {
+
+        <script type="text/javascript">
+    function script() {
+        alert("@TempData["Message"] ");
+    }
+        </script>
+    }
+    <script>
+    $(document).ready(function () {
+        $('.datepicker').datepicker({
+            keyboardNavigation: false,
+            forceParse: false,
+            todayHighlight: true,
+            format: "yyyy-mm-dd"
+        });
+
+        $('.date-popup').datepicker({
+            keyboardNavigation: false,
+            forceParse: false,
+            todayHighlight: true,
+            format: "yyyy-mm-dd"
+        });
+
+
+    });
+    </script>
+}
+
+

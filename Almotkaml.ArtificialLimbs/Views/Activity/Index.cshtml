@@ -1,0 +1,45 @@
+﻿@model Almotkaml.ArtificialLimbs.Models.ActivityModel
+
+@{
+    ViewBag.Title = "مراقبة المستخدمين";
+}
+
+
+
+
+@using (Ajax.BeginForm(new AjaxOptions()
+{
+    UpdateTargetId = "ajax-form",
+    OnSuccess = "RedirectToIndex()",
+    OnBegin = "OnBegin()",
+    LoadingElementId = "divLoading"
+}))
+{
+    <div id="ajax-form">
+        @Html.Partial("_Form", Model, ViewData)
+    </div>
+}
+
+
+@section Scripts {
+
+    <script>
+
+    $(document).ready(function () {
+        $('.datepicker').datepicker({
+            keyboardNavigation: false,
+            forceParse: false,
+            todayHighlight: true,
+            format: "yyyy-mm-dd",
+            startDate: '+1d',
+        });
+
+        $('.date-popup').datepicker({
+            keyboardNavigation: false,
+            forceParse: false,
+            todayHighlight: true,
+            format: "yyyy-mm-dd"
+        });
+    });
+    </script>
+}

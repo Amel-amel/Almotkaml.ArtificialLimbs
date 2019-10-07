@@ -1,0 +1,59 @@
+﻿@model Almotkaml.ArtificialLimbs.Models.HospitalsModel
+
+@{
+    ViewBag.Title = "حذف جهة";
+}
+
+
+
+@using (Html.BeginForm("Delete", "Hospitals", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.HospitalsId)
+
+<div class="row">
+    <div class="col-lg-12 animatedParent animateOnce z-index-50">
+        <div class="panel panel-default animated fadeInUp">
+            <div class="panel-heading clearfix">
+                <h3 class="panel-title ">حذف جهة</h3>
+                <ul class="panel-tool-options">
+                    <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
+                    <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
+                    <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
+                </ul>
+            </div>
+            <div class="panel-body">
+                <form>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <h3>هل انت متأكد من حذف العنصر <strong></strong></h3>
+                            <hr />
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.HiddenFor(model => model.HospitalsId)
+                                    @Html.DisplayNameFor(model => model.Name)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Name)
+                                </dd>
+
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @*<a class="btn btn-danger" asp-area="" asp-controller="Hospitals" asp-action="Delete" asp-route-id="@model.HospitalsId">ddd</a>*@
+                        <input type="submit"  value="حذف"  class="btn btn-danger" />
+                        @Html.ActionLink("الرجوع", "Index", null, new { @class = "btn btn-info" })
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+}
+

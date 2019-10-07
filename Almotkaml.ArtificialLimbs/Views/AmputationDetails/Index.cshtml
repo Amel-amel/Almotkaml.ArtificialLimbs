@@ -1,0 +1,146 @@
+﻿@*@model IEnumerable<Almotkaml.ArtificialLimbs.Core.Domain.DailyDetails>*@
+@model Almotkaml.ArtificialLimbs.Models.AmputationDetailsModel
+@using Almotkaml.ArtificialLimbs.Global.Extensions
+@using Almotkaml.ArtificialLimbs.Core.Enum
+@using Almotkaml.ArtificialLimbs.Models
+@{
+    ViewBag.Title = "تفاصيل حالة بتر";
+}
+
+<p>
+    @Html.ActionLink("أضافة", "Create", new { id = Model.AmputationStatuesID, PatientIID = Model.PatientID }, new { @class = "btn btn-success" })
+</p>
+<div class="col-lg-12 animatedParent animateOnce z-index-50">
+    <div class="row">
+        <div class="col-lg-12 animatedParent animateOnce z-index-50">
+            <div class="panel panel-default animated fadeInUp">
+                <div class="panel-heading clearfix">
+                    <h3 class="panel-title">الحالات اليومية </h3>
+                    <ul class="panel-tool-options">
+                        <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
+                        <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
+                        <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
+                    </ul>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>ر.ت</th>
+                                        <th>@Html.DisplayNameFor(model => model.MeasurementModel)</th>
+                                        <th>@Html.DisplayNameFor(model => model.AmputationPart)</th>
+                                        <th>@Html.DisplayNameFor(model => model.Part)</th>
+                                        <th>@Html.DisplayNameFor(model => model.PartMeasure)</th>
+                                        <th>@Html.DisplayNameFor(model => model.ShoeNO)</th>
+                                        <th>@Html.DisplayNameFor(model => model.Note)</th>
+
+                                        @*@if (Model.CanEdit)
+                            {*@
+                                        <th>التعديل</th>
+                                        @*}
+                            @if (Model.CanDelete)
+                            {*@
+                                        <th>الحذف</th>
+                                        @*}*@
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                    var count = 0;
+                                    }
+                                    @foreach (var item in Model.AmputationDetailsGrid)
+                                {
+                                    count++;
+                                <tr class="gradeX">
+                                    <td>@count</td>
+                                    <th>@typeof(MeasurementModel).DisplayFieldName(item.MeasurementModel.ToString())</th>
+                                    <th>@typeof(AmputationPart).DisplayFieldName(item.AmputationPart.ToString())</th>
+                                    <th>@Html.DisplayFor(model => item.MeasurementNumberModel)</th>
+                                    <th>@Html.DisplayFor(model => item.PartMeasure)</th>
+                                    <th>@Html.DisplayFor(model => item.ShoeNO)</th>
+                                    <th>@Html.DisplayFor(model => item.Note)</th>
+
+
+                                    @*@if (Model.CanEdit)
+                        {*@
+                                    <td>
+                                        @Html.ActionLink("تعديل", "Edit", new { ID = item.AmputationDetailsID }, new { @class = "btn btn-primary" })
+                                    </td>
+                                    @*}*@
+                                    @*@if (Model.CanDelete)
+                        {*@
+                                    <td>
+
+                                        @Html.ActionLink("حذف", "Delete", new { ID = item.AmputationDetailsID }, new { @class = "btn btn-danger" })
+                                    </td>
+                                    @*}*@
+                                </tr>
+                                }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                            @Html.ActionLink("الرجوع", controllerName: "AmputationStatues", actionName: "Index", routeValues: null, htmlAttributes: new { @class = "btn btn-info" })
+                    </div>
+                    </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.dailyStatues.MeasurementDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MeasurementModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Part)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AmputationPart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PartMeasure)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.shoesNo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.dailyStatues.MeasurementDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MeasurementModel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Part)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmputationPart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PartMeasure)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.shoesNo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AmputationDetailsID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AmputationDetailsID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AmputationDetailsID })
+        </td>
+    </tr>
+}
+
+</table>*@

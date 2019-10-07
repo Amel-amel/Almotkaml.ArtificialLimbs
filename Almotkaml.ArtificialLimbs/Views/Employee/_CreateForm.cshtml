@@ -1,0 +1,176 @@
+﻿@model Almotkaml.ArtificialLimbs.Models.EmployeeModel
+@using Almotkaml.ArtificialLimbs.Global.Herbler
+@using Almotkaml.ArtificialLimbs.Models
+
+
+@using (Html.BeginForm("Create", "Employee", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.EmployeeName)
+
+    <div class="row">
+        <div class="col-lg-12 animatedParent animateOnce z-index-50">
+            <div class="panel panel-default animated fadeInUp">
+                <div class="panel-heading clearfix">
+                    <h3 class="panel-title ">اضافة فني علاج</h3>
+                    <ul class="panel-tool-options">
+                        <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
+                        <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
+                        <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
+                    </ul>
+                </div>
+
+                <div class="panel-body">
+                    @Html.Note()
+                    <form>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.EmployeeName, htmlAttributes: new { @class = "control-label " })
+                                    @Html.HiddenFor(model => model.EmployeeName, new { name = "EmpName" })
+                                    @*@Html.TextBoxFor(model => model.EmployeeName, new { @class = "field_text form-control ", disabled = "disabled" ,name="EmpName"})*@
+                                    <button name="EmpName" type="button" class="field_text form-control" style="text-align: right" data-toggle="modal" data-target="#EmployeeModal">@Model.EmployeeName</button>
+                                    @*@Html.ValidationMessageFor(model => model.EmployeeName, "", new { @class = "text-danger" })*@
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.DepartmentID, htmlAttributes: new { @class = "control-label " })
+                                    @Html.DropDownListFor(model => model.DepartmentID, new SelectList(Model.DepartmentList, nameof(DepartmentListItem.DepartmentID), nameof(DepartmentListItem.DepartmentName)), "--اختر--", new { @class = "Select2 field_menu form-control" })
+                                    @Html.ValidationMessageFor(model => model.DepartmentID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <input name="Save" type="submit" value="حفظ" class="btn btn-success" />
+                            @Html.ActionLink("الرجوع", "Index", null, new { @class = "btn btn-info" })
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 animatedParent animateOnce z-index-50">
+            <div class="panel panel-default animated fadeInUp">
+                <div class="panel-heading clearfix">
+                    <h3 class="panel-title">بيانات الموظفين</h3>
+                    <ul class="panel-tool-options">
+                        <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
+                        <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
+                        <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
+                    </ul>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover dataTables-example">
+                            <thead>
+                                <tr>
+                                    <th>ر.ت</th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.EmployeeName)
+                                    </th>
+                                    <th>اختيار</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    var count = 0;
+                                }
+                                @foreach (var item in Model.HREmployeeGrid)
+                                {
+                                    count++;
+                                    <tr class="gradeX">
+                                        <td>@count</td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FirstName)
+
+                                            @Html.DisplayFor(modelItem => item.FatherName)
+
+                                            @Html.DisplayFor(modelItem => item.LastName)
+                                        </td>
+                                        <td>
+                                            <button type="submit" name="Selected" value="@item.EmployeeId" class="btn btn-info">اختيار</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- /.Technical panel
+    <!-- Region TechnicalGrid -->
+    <div class="modal fade" id="EmployeeModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body panel-body">
+                    <div class="form-group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading clearfix">
+                                <h3 class="panel-title">  بيانات الفنيين</h3>
+                                <ul class="panel-tool-options">
+                                    <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover dataTables-example">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.EmployeeName)
+                                                </th>
+                                                @*<th>اختيار</th>*@
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.HREmployeeGrid)
+                                            {
+                                                <tr class="odd gradeX">
+                                                    <td>
+                                                        @Html.RadioButtonFor(model => model.HREmpID, item.EmployeeId,
+                        new { onclick = "hideModal('myModal');$('.modal-backdrop').remove();$(this.form).submit();", data_dismiss = "modal" })
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.FirstName)
+
+                                                        @Html.DisplayFor(modelItem => item.FatherName)
+
+                                                        @Html.DisplayFor(modelItem => item.LastName)
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">إغلاق</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Region TechnicalGrid -->
+
+    }

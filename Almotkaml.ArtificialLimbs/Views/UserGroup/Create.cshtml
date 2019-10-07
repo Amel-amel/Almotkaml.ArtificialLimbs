@@ -1,0 +1,139 @@
+﻿@model Almotkaml.ArtificialLimbs.Models.UserGroupModel
+@using Almotkaml.ArtificialLimbs.Global
+@using Almotkaml.ArtificialLimbs.Global.Herbler
+
+@{
+    ViewBag.Title = "اضافة صلاحيات مستخدمين";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+        function check_now(checkId) {
+            document.getElementById(checkId).checked = true;
+        }
+</script>
+
+@using (Html.BeginForm("Create", "UserGroup", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading clearfix">
+                    @ViewBag.Title
+                </div>
+                <div class="panel-body">
+                    @Html.Note()
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(model => model.GroupTitle, new { @class = "control-label" })
+                            @Html.TextBoxFor(model => model.GroupTitle, new { @class = "field_text form-control" })
+                            @Html.ValidationMessageFor(model => model.GroupTitle)
+                        </div>
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                @*-------------------------------------*@
+                <div class="panel-heading" style="background-color: #fff; border-bottom-color: #fff">الصلاحيات :-</div>
+
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        @{
+                            var backGroundColor = "#ddd";
+                            var cycle = 0;
+                        }
+
+                        @foreach (var baseCategory in new Category().GetCategories(Html))
+                        {
+                            <br />
+                            <div class="panel-heading" style="background-color: #fff; border-bottom-color: #fff">@baseCategory.Title :</div>
+                            foreach (var category in baseCategory.Categories)
+                            {
+                                if (!category.IsActive)
+                                {
+                                    continue;
+                                }
+
+                                var propertyInfos = typeof(Permission).GetProperties().Where(p => p.Name == category.ControllerName || p.Name.StartsWith(category.ControllerName + "_"))
+                                                            .ToList();
+                                var checkAll = new AllTrue();
+
+                                foreach (var permission in propertyInfos)
+                                {
+                                    checkAll.AreTrue = InfoDisplay.GetValue(permission.Name, Model.Permission);
+                                }
+                                foreach (var addedPermission in category.AddedPermissions)
+                                {
+                                    checkAll.AreTrue = InfoDisplay.GetValue(addedPermission, Model.Permission);
+                                }
+                                backGroundColor = backGroundColor == "#ddd" ? "#fff" : "#ddd";
+                                cycle++;
+                                var selectAll = "selecctall" + cycle;
+                                var checkBox = "checkbox" + cycle;
+                                <div style="background-color: @backGroundColor; border: solid 1px #aaa">
+                                    <div class="side-by-side" style="width: 20%">
+                                        <span>@category.Title : </span>
+                                        @Html.CheckBox("false", checkAll.AreTrue, new { id = selectAll, onclick = "CheckAll('" + cycle + "')" })
+                                    </div>
+                                    @foreach (var permission in propertyInfos)
+                        {
+                            var value = InfoDisplay.GetValue(permission.Name, Model.Permission);
+                            var phrase = "";
+                            if (permission.Name == category.ControllerName)
+                            {
+                                phrase = "مشاهدة";
+                            }
+                            else if (permission.Name.Contains('_'))
+                            {
+                                phrase = Category.GetPermissionPhrase(permission.Name, Model.Permission);
+                            }
+                            <div class="side-by-side ">
+                                @Html.CheckBox("Permission." + permission.Name, value, new { @class = checkBox })
+                                <span>@phrase</span>
+                            </div>
+                                    }
+                                    @foreach (var addedPermission in category.AddedPermissions)
+                        {
+                            var phrase = Category.GetPermissionPhrase(addedPermission, Model.Permission);
+                            var value = InfoDisplay.GetValue(addedPermission, Model.Permission);
+                                        <div class="side-by-side ">
+                                            @Html.CheckBox("Permissions." + addedPermission, value, new { @class = checkBox })
+                                            <span>@phrase</span>
+                                        </div>
+                                    }
+                                </div>
+                            }
+                        }
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <input name="save" type="submit" value="حفظ" class="btn btn-success" />
+                        <input type="reset" value="استعادة" class="btn btn-default  " />
+                        @Html.ActionLink("الرجوع إلى القائمة", "Index", null, new { @class = "pull-right btn btn-info" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section scripts
+{
+    
+    <script>
+        function CheckAll($checkAll) {
+            $(document)
+                .ready(function() {
+                    $("#selecctall" + $checkAll)
+                        .change(function() {
+                            $(".checkbox" + $checkAll).prop('checked', $(this).prop("checked"));
+                        });
+                });
+        }
+    </script>
+
+}

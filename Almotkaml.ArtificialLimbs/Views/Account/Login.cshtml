@@ -1,63 +1,36 @@
-﻿@using Almotkaml.ArtificialLimbs.Models
-@model LoginViewModel
+﻿@model Almotkaml.ArtificialLimbs.Models.LoginModel
+@using Almotkaml.ArtificialLimbs.Models
 @{
-    ViewBag.Title = "Log in";
+
+    ViewBag.Title = "تسجيل الدخول";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
 }
 
-<h2>@ViewBag.Title.</h2>
-<div class="row">
-    <div class="col-md-8">
-        <section id="loginForm">
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
-                            @Html.CheckBoxFor(m => m.RememberMe)
-                            @Html.LabelFor(m => m.RememberMe)
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Log in" class="btn btn-default" />
-                    </div>
-                </div>
-                <p>
-                    @Html.ActionLink("Register as a new user", "Register")
-                </p>
-                @* Enable this once you have account confirmation enabled for password reset functionality
-                    <p>
-                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                    </p>*@
-            }
-        </section>
-    </div>
-    <div class="col-md-4">
-        <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-        </section>
-    </div>
-</div>
+@using (Html.BeginForm("Login", "Account", new { ViewBag.ReturnUrl }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    <form class="login100-form validate-form">
+        <span class="login100-form-title">
+            تسجيل الدخول
+        </span>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+            @Html.TextBoxFor(model => model.UserName, new { @class = " input100 form-control", placeholder = "اسم الدخول", autofocus = "" })
+            <span class="focus-input100"></span>
+            <span class="symbol-input100"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+        </div>
+        <div class="wrap-input100 validate-input" data-validate="Password is required">
+            @Html.PasswordFor(model => model.Password, new { @class = "input100  form-control", placeholder = "كلمة المرور", value = "" })
+            <span class="focus-input100"></span>
+            <span class="symbol-input100"><i class="fa fa-lock" aria-hidden="true"></i></span>
+        </div>
+        <!-- Change this to a button or input when using this as a form -->
+        <div class="container-login100-form-btn m-t-20">
+            <button type="submit" name="submit" value="دخول" class="login100-form-btn">دخول</button>
+        </div>
+
+    </form>
+
 }

@@ -1,0 +1,24 @@
+﻿@model Almotkaml.ArtificialLimbs.Models.DailyDetailsModel
+@using Almotkaml.ArtificialLimbs.Global.Herbler
+@using Almotkaml.ArtificialLimbs.Core.Enum
+@using Almotkaml.ArtificialLimbs.Models
+
+@{
+    ViewBag.Title = "اضافة تفاصيل حالات يومية";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    <div id="ajax-form">
+        @Html.Partial("_Form", Model, ViewData)
+    </div>
+
+     
+}
+
+<div>
+    @Html.ActionLink("الرجوع", "Index")
+</div>

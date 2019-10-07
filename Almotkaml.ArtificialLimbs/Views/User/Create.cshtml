@@ -1,0 +1,75 @@
+﻿@model Almotkaml.ArtificialLimbs.Models.UserModel
+@using Almotkaml.ArtificialLimbs.Models;
+@using Almotkaml.ArtificialLimbs.Global.Herbler
+
+@{
+    ViewBag.Title = "اضافة مستخدمين";
+}
+@using (Html.BeginForm("Create", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="row">
+        <div class="col-lg-12 animatedParent animateOnce z-index-50">
+            <div class="panel panel-default animated fadeInUp">
+                <div class="panel-heading clearfix">
+                    <h3 class="panel-title ">اضافة مستخدم</h3>
+                    <ul class="panel-tool-options">
+                        <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
+                        <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
+                        <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
+                    </ul>
+                </div>
+                <div class="panel-body">
+                    @Html.Note()
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label " })
+                                @Html.TextBoxFor(model => model.UserName, new { @class = "form-control " })
+                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.UserTitle, htmlAttributes: new { @class = "control-label " })
+                                @Html.TextBoxFor(model => model.UserTitle, new { @class = "form-control " })
+                                @Html.ValidationMessageFor(model => model.UserTitle, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.UserGroupId, htmlAttributes: new { @class = "control-label " })
+                                @Html.DropDownListFor(model => model.UserGroupId, new SelectList(Model.UserGroupList, nameof(UserGroupListItem.UserGroupID), nameof(UserGroupListItem.GroupTitle)), "--اختر--", new { @class = "field_menu form-control " })
+                                @Html.ValidationMessageFor(model => model.UserGroupId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Password)
+                                @Html.PasswordFor(model => model.Password, new { @class = "field_text form-control" })
+                                @Html.ValidationMessageFor(model => model.Password)
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ConfirmPassword)
+                                @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "field_text form-control" })
+                                @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <input type="submit" value="حفظ" class="btn btn-success" />
+                        @Html.ActionLink("الرجوع", "Index", null, new { @class = "btn btn-info" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}

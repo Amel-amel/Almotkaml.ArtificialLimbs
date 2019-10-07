@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+
+    <meta charset="utf-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>@ViewBag.Title@* - @Main.Settings.CompanyName*@</title>
+    <link rel='shortcut icon' type='image/x-icon' href='~/Content/images/Almotkaml.ico' />
+    <!-- Bootstrap Core CSS -->
+    <link href="@Url.Content("~/Contents/css/loginMain/main.css")" rel="stylesheet">
+    <link href="~/Contents/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="~/Content/css/droidarabickufi.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    
+    <link href="~/Content/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendor/animate/animate.css" rel="stylesheet">
+    <link href="~/Content/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet">
+    <link href="~/Content/vendor/select2/select2.min.css" rel="stylesheet">
+   
+
+    <!--===============================================================================================-->
+
+    <link href="~/Content/css/plugins/css3-animate-it-plugin/animations.css" rel="stylesheet">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Contents/css/plugins/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+   
+    <link href="~/Content/css/util.css" rel="stylesheet" />
+    <link href="~/Content/css/loginMain/util.css" rel="stylesheet" />
+    <link href="~/Content/css/loginMain/main.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <!-- MetisMenu CSS -->
+    <link href="~/Contents/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Contents/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href="@Url.Content("~/Contents/css/droidarabickufi.css")" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        * {
+            font-family: 'Droid Arabic Kufi', 'Open Sans', sans-serif;
+            font-size: 12px;
+        }
+
+        .note {
+            color: #f00;
+        }
+    </style>
+</head>
+<body>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-pic js-tilt" data-tilt>
+                    <img src="~/Content/images/LogoCompany.png" alt="IMG">
+                </div>
+                @RenderBody()
+             
+                <footer class="animatedParent animateOnce z-index-10">
+                    <a href="http://almotkaml.com" style="text-decoration: none;">
+                        جميع الحقوق محفوظة© لشركة المتكامل لإدارة وتقنية المعلومات
+                    </a>
+                </footer>
+                @*<div style="margin: auto; text-align: center;"><img alt="شركة المتكامل" src="~/Content/images/logocomp.png" /></div>
+
+                    <div style="text-align:center; color:#555">
+                        <a href="http://almotkaml.com" style="text-decoration: none;">
+                            جميع الحقوق محفوظة© لشركة المتكامل لإدارة وتقنية المعلومات
+                        </a>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+    <script src="~/Content/js/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="~/Content/js/plugins/daterangepicker/moment.min.js"></script>
+    <script src="~/Content/js/plugins/countdowntime/countdowntime.js"></script>
+    <script src="~/Content/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="~/Content/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/Content/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/vendor/select2/select2.min.js"></script>
+    <script src="~/Content/vendor/tilt/tilt.jquery.min.js"></script>
+   
+</body>
+</html>
